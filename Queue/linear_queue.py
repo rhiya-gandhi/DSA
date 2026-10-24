@@ -20,7 +20,7 @@ class LQueue:
         temp = self.front
         print("deleted node", temp.data)
         self.front = self.front.next
-        if self.front == None #if there is only one node
+        if self.front == None: #if there is only one node
             print("queue is empty now")
             self.rear = None
         temp= None
@@ -34,4 +34,4 @@ que = LQueue()
 que.enqueue()
 que.see()
 que.dequeue()
-
+que.see()
