@@ -8,7 +8,7 @@ class BST:
     def __init__(self):
         self.root=None
         self.leafcnt = 0
-       
+        self.nonleafnode = 0
     def insert(self, new_node):
         if self.root is None: ##BST is empty
             self.root=new_node
@@ -35,6 +35,8 @@ class BST:
             print(rt.data, end=" ")
             if rt.left is None and rt.right is None: #condition to get leaf node
                 self.leafcnt += 1
+            if rt.left is not None and rt.right is not None: #condition to get non leaf node
+                self.nonleafnode += 1
             self.inorder(rt.right)
 
     def preorder(self, rt):
@@ -51,11 +53,11 @@ class BST:
             self.postorder(rt.left)
             self.postorder(rt.right)
             print(rt.data, end=" ")
-    def findminmax(self):
+    def findminmax(self): #as we know that left subtree will have the lowest number and rightsubtree leaf node will be the largest 
         temp=self.root
-        while temp.left:
+        while temp.left: #travell till temp.left exists
             temp=temp.left
-        print("\nMin: ", temp.data)
+        print("\nMin: ", temp.data) #when temp.left is none then print last node data vice versa for largest
         temp=self.root
         while temp.right:
             temp=temp.right
@@ -73,6 +75,7 @@ b1.insert(Node(300))
 print("\nInorder: ")
 b1.inorder(b1.root)
 print("\nNo of leaf nodes: ",b1.leafcnt)
+print("\nNo of non leaf nodes: ",b1.nonleafnode)
 print("\nPreorder: ")
 b1.preorder(b1.root)
 print("\nPostorder: ")
