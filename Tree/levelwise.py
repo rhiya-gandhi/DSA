@@ -38,20 +38,17 @@ class BST:
         if rt is None:
             print("BST is empty")
             return
-        arr =[]
-        cnt = 0 #to count visited nodes
+        arr =[] #storing nodes level wise in array
+        cnt = 0 #to count visited nodes 
         arr.append(rt) #to get the rt in array 
-        while cnt < len(arr):
-            temp = arr[cnt]
-            cnt += 1
-            print(temp.data , end=" ")
-            if temp.left:
-                arr.append(temp.left)
+        while cnt < len(arr): #(0 to 8)
+            temp = arr[cnt] #temp will have root at the start (cnt will be 0 then goes further)
+            cnt += 1 #this is count of number of nodes visited 
+            print(temp.data , end=" ") #print 1st level then go further 
+            if temp.left: #here the left and right child are check of value which is printed
+                arr.append(temp.left) #we add child in the array then go to while to print them 
             if temp.right:
                 arr.append(temp.right)
-
-
-
 
 btree= BST()
 btree.insert(node(100))
